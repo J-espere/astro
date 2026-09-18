@@ -1,0 +1,61 @@
+# School pack: Uranian astrology / Cosmobiology (Witte, Sieggrun; Ebertin)
+#
+# The most mechanically different pack: meaning lives in MIDPOINTS, not in signs or houses.
+# Hard aspects only, very tight orbs, and a 90-degree dial rather than a 360-degree wheel.
+
+id: uranian
+name: Uranian / Cosmobiology
+source: "Alfred Witte (Hamburg School); Reinhold Ebertin, Combination of Stellar Influences"
+version: 0.1.0
+
+zodiac: tropical
+
+bodies:
+  planets: [sun, moon, mercury, venus, mars, jupiter, saturn, uranus, neptune, pluto]
+  points: [north_node, aries_point]
+  angles: [asc, mc]
+  transneptunian:            # Uranian proper; cosmobiology (Ebertin) DROPS these
+    enabled: true
+    members: [cupido, hades, zeus, kronos, apollon, admetos, vulkanus, poseidon]
+    note: "Hypothetical bodies. swisseph provides them (SE_CUPIDO..SE_POSEIDON)."
+  personal_points: [sun, moon, asc, mc, node, aries_point]
+
+midpoints:
+  enabled: true              # the core mechanic
+  primary: "sun/moon"        # the marriage axis; Ebertin's central indicator
+  trees: true                # planetary pictures: A + B - C
+  orb_deg: 1.5
+  note: "A reading is a list of midpoint pictures, not a list of planet-in-sign statements."
+
+aspects:                     # hard aspects only, 8th-harmonic series
+  set:
+  - {name: conjunction,    angle: 0,   orb: 1.5, weight: 1.00}
+  - {name: opposition,     angle: 180, orb: 1.5, weight: 1.00}
+  - {name: square,         angle: 90,  orb: 1.5, weight: 1.00}
+  - {name: semisquare,     angle: 45,  orb: 1.0, weight: 0.80}
+  - {name: sesquiquadrate, angle: 135, orb: 1.0, weight: 0.80}
+  excluded: [30, 60, 120, 150]
+  excluded_reason: "Soft aspects are held to be non-diagnostic. Only stress shows structure."
+
+dial:
+  enabled: true
+  harmonic: 90               # 90-degree dial; 45 and 22.5 also used
+  note: "UI requirement: a dial view, not just a wheel."
+
+influence_windows:
+  model: symmetric
+  tightness: extreme         # <=1.5 deg throughout; transits are momentary and precise
+
+house_frames:
+  natal: {system: meridian, governs: [structure]}   # swisseph house system 'X'
+  note: "Houses are de-emphasised. Cosmobiology often discards them entirely."
+
+signs_govern: []             # signs carry little interpretive weight here
+houses_govern: [minor]
+
+directions:
+  solar_arc: true            # primary predictive tool, ahead of transits
+
+output_stance:
+  descriptive_not_prescriptive: true
+  require_citations: true

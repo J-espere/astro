@@ -1,0 +1,74 @@
+# School pack: Modern Western baseline (the astro.com-like control)
+#
+# Purpose: a neutral reference. When a reading differs between this pack and another,
+# the difference IS the school's contribution. Do not tune this one -- it is the control.
+
+id: modern-western
+name: Modern Western (baseline)
+source: "Common contemporary practice; Astrodienst defaults"
+version: 0.1.0
+
+zodiac: tropical
+
+bodies:
+  planets: [sun, moon, mercury, venus, mars, jupiter, saturn, uranus, neptune, pluto]
+  points: [north_node, south_node, part_of_fortune]
+  asteroids: [chiron]          # commonly included; ceres/pallas/juno/vesta optional
+  angles: [asc, dsc, mc, ic]
+  node_type: true
+
+rulerships:                    # modern, with traditional rulers retained as secondary
+  aries: mars
+  taurus: venus
+  gemini: mercury
+  cancer: moon
+  leo: sun
+  virgo: mercury
+  libra: venus
+  scorpio: pluto
+  sagittarius: jupiter
+  capricorn: saturn
+  aquarius: uranus
+  pisces: neptune
+  traditional_secondary: {scorpio: mars, aquarius: saturn, pisces: jupiter}
+
+aspects:                       # orbs by ASPECT (contrast: Hellenistic orbs by BODY)
+  set:
+    - {name: conjunction,     angle: 0,   orb: 8.0, class: major,  weight: 1.00}
+    - {name: opposition,      angle: 180, orb: 8.0, class: major,  weight: 0.95}
+    - {name: trine,           angle: 120, orb: 7.0, class: major,  weight: 0.75}
+    - {name: square,          angle: 90,  orb: 7.0, class: major,  weight: 0.85}
+    - {name: sextile,         angle: 60,  orb: 5.0, class: major,  weight: 0.60}
+    - {name: semisextile,     angle: 30,  orb: 2.0, class: minor,  weight: 0.20}
+    - {name: semisquare,      angle: 45,  orb: 2.0, class: minor,  weight: 0.30}
+    - {name: sesquiquadrate,  angle: 135, orb: 2.0, class: minor,  weight: 0.30}
+    - {name: quincunx,        angle: 150, orb: 3.0, class: minor,  weight: 0.30}
+    - {name: quintile,        angle: 72,  orb: 1.5, class: minor,  weight: 0.15, enabled: false}
+
+influence_windows:
+  model: symmetric           # <-- the key structural difference from the hatch pack
+  luminary_bonus: 1.0
+
+house_frames:
+  natal: {system: placidus, governs: [life_domains]}
+
+signs_govern: [personality, mode_of_expression]
+houses_govern: [life_domains]
+
+emphasis:
+  big_three: [sun, moon, asc]
+  chart_ruler: true          # ruler of the Ascendant sign carries extra weight
+
+retrogrades:
+  shadow_periods: false      # commonly noted for Mercury only, informally
+
+cycles:
+  saturn: {period_years: 29.5, milestones: {conjunction: [29, 59, 88]}}
+  jupiter: {period_years: 11.9}
+  nodal: {period_years: 18.6}
+  progressions: {secondary: true, rate: "1 day = 1 year"}
+  returns: [solar, lunar, saturn]
+
+output_stance:
+  descriptive_not_prescriptive: false
+  require_citations: true

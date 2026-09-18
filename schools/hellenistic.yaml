@@ -1,0 +1,82 @@
+# School pack: Traditional / Hellenistic
+#
+# The sharpest structural contrast to every modern pack: no outer planets, no minor aspects,
+# orbs attach to BODIES not aspects, houses are whole-sign, and chart condition is judged by
+# sect and dignity rather than by aspect count.
+
+id: hellenistic
+name: Traditional / Hellenistic
+source: "Ptolemy, Valens, Dorotheus; Project Hindsight / modern revival practice"
+version: 0.1.0
+
+zodiac: tropical
+
+bodies:
+  planets: [sun, moon, mercury, venus, mars, jupiter, saturn]   # seven visible only
+  points: [north_node, south_node, lot_of_fortune, lot_of_spirit]
+  asteroids: []
+  angles: [asc, dsc, mc, ic]
+  excluded: [uranus, neptune, pluto, chiron]
+  excluded_reason: "not visible; no place in the received doctrine"
+
+rulerships:
+  aries: mars
+  taurus: venus
+  gemini: mercury
+  cancer: moon
+  leo: sun
+  virgo: mercury
+  libra: venus
+  scorpio: mars
+  sagittarius: jupiter
+  capricorn: saturn
+  aquarius: saturn
+  pisces: jupiter
+
+dignity:
+  exaltation: {sun: aries, moon: taurus, mercury: virgo, venus: pisces,
+               mars: capricorn, jupiter: cancer, saturn: libra}
+  triplicity: true          # day/night/participating rulers per element
+  bounds: egyptian          # terms
+  decans: true              # faces
+  joys: true                # planetary joys by house
+
+sect:
+  enabled: true             # THE organising principle; absent from every modern pack
+  diurnal_benefic: jupiter
+  diurnal_malefic: mars
+  nocturnal_benefic: venus
+  nocturnal_malefic: saturn
+  note: "A planet's benefic/malefic force depends on whether the chart is day or night."
+
+aspects:                    # Ptolemaic only. 30 and 150 are AVERSION, not aspects.
+  set:
+  - {name: conjunction, angle: 0,   class: major, weight: 1.00}
+  - {name: opposition,  angle: 180, class: major, weight: 0.95}
+  - {name: trine,       angle: 120, class: major, weight: 0.75}
+  - {name: square,      angle: 90,  class: major, weight: 0.85}
+  - {name: sextile,     angle: 60,  class: major, weight: 0.60}
+  aversion: [30, 150]
+  aversion_note: "Signs that cannot see each other. A relationship of NON-relation --
+                  the opposite of the hatch pack, which promotes the 150."
+
+influence_windows:
+  model: moiety             # orb = half the sum of the two bodies' own orbs
+  body_orbs: {sun: 15, moon: 12, mercury: 7, venus: 7, mars: 8, jupiter: 9, saturn: 9}
+  sign_based_aspects: true  # whole-sign aspects also counted, degree-based secondary
+
+house_frames:
+  natal: {system: whole_sign, counted_from: asc, governs: [topics]}
+  note: "Whole-sign from the Ascendant -- NOT the hatch pack's whole-sign-from-the-Sun."
+
+time_lord_techniques:
+  annual_profections: true  # 1 house per year from the Ascendant
+  zodiacal_releasing: {from: [lot_of_spirit, lot_of_fortune]}
+  firdaria: true
+  planetary_periods: true
+  note: "Transits are SECONDARY here. The time-lord sequence decides which transits matter."
+
+output_stance:
+  descriptive_not_prescriptive: false
+  condition_before_meaning: true   # judge the planet's condition first, then its topic
+  require_citations: true

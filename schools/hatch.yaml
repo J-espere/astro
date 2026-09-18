@@ -41,17 +41,18 @@ rulerships:                                  # modern, with the book's two depar
     virgo:  "author conjectures Planet X as true ruler (Ch. 16)"
 
 aspects:                                     # exactly seven; no 45/135/quintile (Ch. 15)
-  - {name: conjunction, angle: 0,   class: cycle_start, weight: 1.00}
-  - {name: semisextile, angle: 30,  class: minor_harmonious, weight: 0.35,
-     always_surface: true}                   # minor in force, but marks cycle open/close
-  - {name: sextile,     angle: 60,  class: harmonious, weight: 0.70}
-  - {name: square,      angle: 90,  class: friction,   weight: 0.85}
-  - {name: trine,       angle: 120, class: harmonious, weight: 0.75,
-     note: "consequence of prior action; may require action to realize"}
-  - {name: inconjunct,  angle: 150, class: friction,   weight: 0.85,
-     signature: impulsivity,
-     note: "PROMOTED. Mainstream low weight is treated as an error (Ch. 15)."}
-  - {name: opposition,  angle: 180, class: evaluation, weight: 0.95}
+  set:
+    - {name: conjunction, angle: 0,   class: cycle_start, weight: 1.00}
+    - {name: semisextile, angle: 30,  class: minor_harmonious, weight: 0.35,
+       always_surface: true}                   # minor in force, but marks cycle open/close
+    - {name: sextile,     angle: 60,  class: harmonious, weight: 0.70}
+    - {name: square,      angle: 90,  class: friction,   weight: 0.85}
+    - {name: trine,       angle: 120, class: harmonious, weight: 0.75,
+       note: "consequence of prior action; may require action to realize"}
+    - {name: inconjunct,  angle: 150, class: friction,   weight: 0.85,
+       signature: impulsivity,
+       note: "PROMOTED. Mainstream low weight is treated as an error (Ch. 15)."}
+    - {name: opposition,  angle: 180, class: evaluation, weight: 0.95}
 
 # The distinctive mechanic: influence windows are ASYMMETRIC and keyed to the transiting
 # body, not a symmetric orb (Ch. 15). Degrees are seeded; shapes are the book's.

@@ -8,8 +8,11 @@ interpretation layer that accumulates your own takes over time.
 - [`docs/PLAN.md`](docs/PLAN.md) — architecture, stack, UI, phased roadmap, open questions.
 - [`docs/doctrine/under-a-libra-god.md`](docs/doctrine/under-a-libra-god.md) — the technical
   method extracted from the source text, as a specification.
-- [`schools/hatch.yaml`](schools/hatch.yaml) — that method encoded as a machine-readable
-  school pack. Swapping this file swaps the astrological method.
+- [`docs/schools.md`](docs/schools.md) — the comparison targets, what each contributes, and
+  the three structural axes they disagree on.
+- [`schools/`](schools/) — each method encoded as a machine-readable pack. Swapping the file
+  swaps the astrological method: `hatch`, `modern-western`, `hellenistic`, `uranian`, and a
+  blocked `cosmodynamics` stub.
 
 ## Design principle
 

@@ -61,9 +61,12 @@ cycle definitions, and output stance. The engine reads it; nothing is hardcoded.
 This is the single most important design decision in the plan, and it falls straight out of
 what you said you're doing: **comparing schools**. Once doctrine is data, "what does this
 transit look like under Hatch vs. under traditional Hellenistic rules?" is a dropdown, and
-later a side-by-side diff view. Planned packs: `hatch`, `modern-western` (astro.com-like
-baseline), `hellenistic` (sect, whole-sign, traditional rulers, no outers), `yours` (forked
-from hatch, diverges as you train it).
+later a side-by-side diff view. Packs now drafted in `schools/`: `hatch`, `modern-western` (the untuned control),
+`hellenistic` (sect, whole-sign-from-ASC, moiety orbs, time lords, no outers), `uranian`
+(midpoints, hard aspects only, 90° dial), and `cosmodynamics` (stub — blocked on source
+text). `yours` forks from `hatch` and diverges as you train it. See
+[`docs/schools.md`](schools.md) for what each contributes and the three structural axes they
+disagree on.
 
 ### `corpus/` — the book, as a retrievable index
 Ingest pipeline: EPUB → clean text → stable paragraph IDs → **factor tags** (which planet /
@@ -156,6 +159,8 @@ side-by-side school comparison, and an interpretation layer that accumulates you
 - **Journal / Inventory** — event log, prompts drawn from the active transit, past readings.
 - **Compare** — same chart, two schools, differences highlighted.
 - **Cycles** — Saturn life-arc, nodal cycle, Venus pentagram, mundane Jupiter–Saturn/Barbault.
+- **Dial** — 90° dial with midpoint trees, required by the `uranian` pack.
+- **Map** — astrocartography lines and relocated angles (Phase 9).
 
 ---
 
@@ -197,6 +202,7 @@ Each phase is independently useful — you can stop at any point and still have 
 | **6. Growth** | Annotations, event log, feedback loop, personal correlation table, Moon lab | Your overlay overrides the book for a factor and the change survives a restart and shows in git history |
 | **7. Compare** | Second and third school packs, side-by-side diff view | Same transit read under three schools, differences highlighted |
 | **8. Depth** | Returns, progressions, synastry, rectification assist, mundane/Barbault cycles | Each as an additive module; none required by the above |
+| **9. Space & search** | Relocation, astrocartography (lines + parans + local space, map view), electional solver | Pick a place and see angles recomputed; find the next datetime meeting a constraint set |
 
 Phases 0–2 are a couple of focused sessions. Phase 3 is the one with real grind in it — the
 tagging review is where accuracy is won or lost, and it's worth doing slowly.
@@ -220,13 +226,21 @@ tagging review is where accuracy is won or lost, and it's worth doing slowly.
 
 ---
 
-## 6. Open questions for you
+## 6. Decisions taken
 
-1. **Local-only, or eventually hosted?** Drives the licence decision and the auth/storage work.
-2. **Which schools do you want to compare against?** Traditional/Hellenistic, Vedic (sidereal
-   + different house logic + dashas — a bigger lift), Uranian/cosmobiology, or just a
-   modern-Western baseline?
-3. **Generated prose, or retrieved passages?** My recommendation is retrieval by default with
-   grounded prose as an opt-in.
-4. **Other books to ingest?** The corpus layer isn't book-specific. If you're comparing
-   schools of thought, a second and third text is where that gets real.
+- **Local-first, open source.** Runs on localhost for a single user. Birth data never leaves
+  the machine, and the AGPL question resolves itself.
+- **Retrieved passages, cited.** Default output is the source's own paragraphs plus your
+  overlay, attributed and challengeable. No generated prose in v1.
+- **Comparison packs:** `modern-western`, `hellenistic`, `uranian`, and `cosmodynamics`
+  (Logan Cross / astrologerapp.org). All drafted except Cosmodynamics, which is blocked on
+  its primary text — see [`docs/schools.md`](schools.md).
+
+## 7. Still open
+
+1. **Can you get the Cosmodynamics treatise as an ebook?** Two volumes, ~1,000+ pages. The
+   ingest pipeline is designed for exactly this; without the text the pack stays a stub.
+2. **Is my read of astrologerapp.org's time model right?** I'm working from the URL structure
+   alone — the domain is blocked from this sandbox. A few screenshots would settle it.
+3. **Other texts to ingest?** The corpus layer isn't book-specific, and a third and fourth
+   source is where school comparison stops being structural and starts being substantive.

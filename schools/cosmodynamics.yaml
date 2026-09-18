@@ -1,0 +1,71 @@
+# School pack: Alchemystic Cosmodynamics (Logan Cross) -- STUB, NOT USABLE YET
+#
+# STATUS: blocked on source material. Everything below marked `unknown` is genuinely
+# unknown to me, not a placeholder I can fill from inference. I did not guess values,
+# because a school pack full of plausible guesses is worse than no pack at all -- it
+# would produce readings attributed to a method that never said them.
+#
+# WHAT IS NEEDED: the primary text, ingested the same way as the hatch corpus --
+#   Logan Cross, "I Fixed Astrology: A Treatise on Alchemystic Cosmodynamics",
+#   Vols 1-2 (~1000+ pp). Once that text is available locally, this pack gets filled
+#   from it the way schools/hatch.yaml was filled from Under A Libra God, and the
+#   doctrine spec goes in docs/doctrine/alchemystic-cosmodynamics.md.
+#
+# WHAT IS KNOWN (from the system's own public description only -- promotional copy,
+# not technical documentation; treat every line as a claim to be verified against
+# the text, never as spec):
+#   - Positions itself as mechanics-first: explicitly removes mythology, archetypes
+#     and "symbolic projection" in favour of celestial mechanics and physical
+#     astronomy. Claims verifiability and repeatable outcomes.
+#   - Built on free will and "alignment" as core principles -- so its output stance is
+#     likely non-fatalistic, which is a real contrast with the hatch pack's
+#     "describes but does not determine" fatalism.
+#   - Chart types in use: natal as foundation, plus relocated, progressed, transits.
+#   - Techniques named: astrocartography, electional, synastry.
+#   - Developed over ~8-10 years as a deliberate rework of traditional theory.
+
+id: cosmodynamics
+name: Alchemystic Cosmodynamics
+source: "Logan Cross, I Fixed Astrology: A Treatise on Alchemystic Cosmodynamics, Vols 1-2"
+version: 0.0.0-stub
+usable: false
+blocked_on: primary_text
+
+zodiac: unknown               # tropical vs sidereal NOT established; a mechanics-first
+                              # system may well use neither in the conventional sense
+
+bodies:
+  planets: unknown
+  points: unknown
+  asteroids: unknown
+  angles: unknown
+  note: "An astronomy-integrated system may include bodies or physical factors that no
+         other pack carries (declination, latitude, distance, actual constellation
+         boundaries, heliocentric positions). The pack schema must not assume otherwise."
+
+rulerships: unknown
+aspects: unknown              # aspect set, orb model, and whether orbs attach to aspect,
+                              # body, or something else entirely -- all unknown
+influence_windows: unknown
+house_frames: unknown
+
+chart_types:                  # the one section with public support
+  natal: {role: foundation}
+  relocated: {role: layer}
+  progressed: {role: layer}
+  transits: {role: layer}
+
+techniques:
+  astrocartography: true      # ENGINE IMPLICATION: planetary lines on a world map.
+                              # This is real new work in ephem/ -- MC/IC/ASC/DSC lines,
+                              # paran latitudes, local space. Added to the roadmap.
+  electional: true            # ENGINE IMPLICATION: search forward for a datetime
+                              # satisfying a set of constraints -- an inverse solver,
+                              # not a chart renderer. Also new work.
+  synastry: true
+  relocation: true            # recompute angles/houses for a different place
+
+output_stance:
+  free_will: true             # claimed core principle
+  anti_mythological: true     # claimed: no archetypal or mythological language
+  require_citations: true
