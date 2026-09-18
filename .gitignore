@@ -6,3 +6,7 @@ __pycache__/
 data/ephe/
 # Ingested book corpora: built from your own copies, never committed.
 data/corpus/
+# Saved charts. Birth data is personal and this repository is public: charts
+# live here, never in tests or fixtures. tests/golden/ uses synthetic charts
+# chosen for their geometry (polar, southern, inside a DST transition).
+data/charts/
