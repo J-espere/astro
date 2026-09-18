@@ -1,0 +1,124 @@
+# School pack: "Under A Libra God" (Nathan Guy Hatch, 2025)
+#
+# A *school pack* is the entire configurable doctrine of an astrological method, as data.
+# Swapping this file swaps the method: bodies, aspects, orbs, house frames, weighting.
+# Nothing in here is hardcoded in the engine — that is what makes the system comparable
+# across schools and trainable by the user.
+#
+# Fields marked `seeded: true` are NOT specified by the book. They are modern-Western
+# defaults, present so the engine runs, and are expected to be tuned by the user against
+# their own logged events. Every tuning is recorded in overlays/, never edited in place.
+
+id: hatch
+name: Under A Libra God
+source: "Nathan Guy Hatch, 2025"
+version: 0.1.0
+
+zodiac: tropical
+
+bodies:
+  planets: [sun, moon, mercury, venus, mars, jupiter, saturn, uranus, neptune, pluto]
+  points:  [north_node, south_node]          # south node drawn explicitly (Ch. 24)
+  asteroids: [chiron]                        # first-class (Ch. 24)
+  angles:  [asc, dsc, mc, ic]
+  node_type: true                            # true vs mean — user-tunable; book is silent
+
+rulerships:                                  # modern, with the book's two departures
+  aries: mars
+  taurus: venus                              # author disputes sharing Venus; flagged below
+  gemini: mercury
+  cancer: moon
+  leo: sun
+  virgo: mercury                             # author conjectures an undiscovered "Planet X"
+  libra: venus
+  scorpio: pluto
+  sagittarius: jupiter
+  capricorn: saturn
+  aquarius: uranus
+  pisces: neptune
+  disputed:
+    taurus: "author rejects sharing Venus with Libra (Ch. 16)"
+    virgo:  "author conjectures Planet X as true ruler (Ch. 16)"
+
+aspects:                                     # exactly seven; no 45/135/quintile (Ch. 15)
+  - {name: conjunction, angle: 0,   class: cycle_start, weight: 1.00}
+  - {name: semisextile, angle: 30,  class: minor_harmonious, weight: 0.35,
+     always_surface: true}                   # minor in force, but marks cycle open/close
+  - {name: sextile,     angle: 60,  class: harmonious, weight: 0.70}
+  - {name: square,      angle: 90,  class: friction,   weight: 0.85}
+  - {name: trine,       angle: 120, class: harmonious, weight: 0.75,
+     note: "consequence of prior action; may require action to realize"}
+  - {name: inconjunct,  angle: 150, class: friction,   weight: 0.85,
+     signature: impulsivity,
+     note: "PROMOTED. Mainstream low weight is treated as an error (Ch. 15)."}
+  - {name: opposition,  angle: 180, class: evaluation, weight: 0.95}
+
+# The distinctive mechanic: influence windows are ASYMMETRIC and keyed to the transiting
+# body, not a symmetric orb (Ch. 15). Degrees are seeded; shapes are the book's.
+#   lead / lag : degrees of applying / separating influence
+#   peak       : degrees from exact where amplitude is greatest (negative = before exact)
+influence_windows:
+  seeded: true
+  mars:    {lead: 6,  lag: 1,  peak: -2, note: "often concludes before exact"}
+  uranus:  {lead: 5,  lag: 4,  peak: -1, note: "onset early, persists through"}
+  jupiter: {lead: 1,  lag: 6,  peak: +2, note: "often does not begin until after exact"}
+  venus:   {lead: 1,  lag: 4,  peak: +1, note: "as Jupiter, shorter"}
+  saturn:  {lead: 5,  lag: 5,  peak: 0}
+  neptune: {lead: 5,  lag: 5,  peak: 0}
+  pluto:   {lead: 5,  lag: 5,  peak: 0}
+  sun:     {lead: 3,  lag: 3,  peak: 0}
+  mercury: {lead: 2,  lag: 2,  peak: 0, amplitude: 0.4, except_retrograde: 1.0}
+  moon:    {lead: 2,  lag: 2,  peak: 0, amplitude: 0.3, duration_days: [1, 2]}
+  chiron:  {lead: 4,  lag: 5,  peak: 0, note: "onset often the most difficult part"}
+  nodes:   {lead: 3,  lag: 3,  peak: 0}
+
+house_frames:                                # BOTH are required; see doctrine §3
+  natal:
+    system: placidus                         # implied by the author's use of Astro Dienst
+    governs: [life_path, fate]
+  zodiac:                                    # whole-sign counted FROM THE SUN SIGN
+    system: whole_sign
+    counted_from: sun
+    governs: [transit_delineation]
+    note: "Most of the book's transit-through-house passages (Chs. 17-28) use this frame."
+
+signs_govern: personality                    # planets in signs -> temperament (Ch. 15)
+houses_govern: life_path                     # planets in houses -> fate/path (Ch. 15)
+
+angles:
+  mc:  public, material destiny
+  asc: the means of reaching destiny; the self
+  ic:  inner, spiritual, home life
+  dsc: partnership; relationship to others
+
+emphasis:
+  # Sun-sign expression dominant in youth, Moon sign in maturity (Ch. 15).
+  sun_moon_shift:
+    seeded: true
+    sun_weight_at_age:  {0: 1.0, 25: 0.8, 45: 0.6, 65: 0.45}
+    moon_weight_at_age: {0: 0.5, 25: 0.7, 45: 0.9, 65: 1.0}
+  minimum_portrait: [sun, moon, asc]         # refuse Sun-only readings (Ch. 14)
+
+retrogrades:
+  shadow_periods: true                       # pre-shadow / retro / post-shadow as intervals
+  resolution_phase: post_shadow              # (Ch. 15, 19)
+  natal_retrograde_notes:
+    chiron: "read as a health-challenge signature (Ch. 24)"
+
+cycles:
+  saturn:
+    period_years: 29.5
+    milestones: {conjunction: [29, 59, 88], opposition: [15, 45, 75], square: [7, 22, 37, 52]}
+    angle_arc: true                          # Saturn over IC->DSC->MC read as one long arc
+  nodal:   {period_years: 18.6}
+  venus:   {synodic_return_years: 8, drift_days: -2.4, super_cycle_years: 243}
+  jupiter_saturn: {period_years: 20, domain: mundane}
+  barbault_pairs: [[saturn, neptune], [saturn, pluto], [uranus, pluto], [jupiter, saturn]]
+  precession: {period_years: 25772, current_age: aquarius}
+
+output_stance:                               # constrains generated text (doctrine §5)
+  descriptive_not_prescriptive: true
+  no_benefic_moralizing: true                # aspects are morally impartial (Ch. 15)
+  transits_accumulate: true                  # show cumulative record, not just "active now"
+  require_citations: true                    # every claim traces to a passage id
+  inventory_prompt: true                     # pair readings with inventory (Ch. 15)
