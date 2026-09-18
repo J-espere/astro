@@ -1,0 +1,156 @@
+{
+  "bodies": {
+    "chiron": {
+      "latitude": 5.016518,
+      "longitude": 263.035923,
+      "retrograde": false,
+      "sign": "sagittarius",
+      "speed": 0.109996
+    },
+    "jupiter": {
+      "latitude": -0.790159,
+      "longitude": 61.857162,
+      "retrograde": true,
+      "sign": "gemini",
+      "speed": -0.066473
+    },
+    "mars": {
+      "latitude": 1.245163,
+      "longitude": 217.578726,
+      "retrograde": false,
+      "sign": "scorpio",
+      "speed": 0.580763
+    },
+    "mercury": {
+      "latitude": -2.111187,
+      "longitude": 291.675465,
+      "retrograde": false,
+      "sign": "capricorn",
+      "speed": 1.645406
+    },
+    "moon": {
+      "latitude": -4.541269,
+      "longitude": 46.667214,
+      "retrograde": false,
+      "sign": "taurus",
+      "speed": 13.70291
+    },
+    "neptune": {
+      "latitude": 0.16919,
+      "longitude": 305.488676,
+      "retrograde": false,
+      "sign": "aquarius",
+      "speed": 0.036085
+    },
+    "pluto": {
+      "latitude": 10.320694,
+      "longitude": 253.926057,
+      "retrograde": false,
+      "sign": "sagittarius",
+      "speed": 0.034266
+    },
+    "saturn": {
+      "latitude": -2.178194,
+      "longitude": 54.412316,
+      "retrograde": true,
+      "sign": "taurus",
+      "speed": -0.035597
+    },
+    "sun": {
+      "latitude": -0.000142,
+      "longitude": 285.251752,
+      "retrograde": false,
+      "sign": "capricorn",
+      "speed": 1.019042
+    },
+    "true_node": {
+      "latitude": 0.0,
+      "longitude": 105.521385,
+      "retrograde": true,
+      "sign": "cancer",
+      "speed": -0.000396
+    },
+    "true_south_node": {
+      "latitude": -0.0,
+      "longitude": 285.521385,
+      "retrograde": true,
+      "sign": "capricorn",
+      "speed": -0.000396
+    },
+    "uranus": {
+      "latitude": -0.680623,
+      "longitude": 318.874605,
+      "retrograde": false,
+      "sign": "aquarius",
+      "speed": 0.050565
+    },
+    "venus": {
+      "latitude": -1.21909,
+      "longitude": 331.930129,
+      "retrograde": false,
+      "sign": "pisces",
+      "speed": 1.085305
+    }
+  },
+  "houses": {
+    "placidus": {
+      "asc": 176.367656,
+      "cusps": [
+        176.367656,
+        216.173355,
+        244.591558,
+        267.830949,
+        290.747914,
+        318.091512,
+        356.367656,
+        36.173355,
+        64.591558,
+        87.830949,
+        110.747914,
+        138.091512
+      ],
+      "mc": 87.830949,
+      "vertex": 358.434646
+    },
+    "porphyry": {
+      "asc": 176.367656,
+      "cusps": [
+        176.367656,
+        206.85542,
+        237.343184,
+        267.830949,
+        297.343184,
+        326.85542,
+        356.367656,
+        26.85542,
+        57.343184,
+        87.830949,
+        117.343184,
+        146.85542
+      ],
+      "mc": 87.830949,
+      "vertex": 358.434646
+    },
+    "whole_sign": {
+      "asc": 176.367656,
+      "cusps": [
+        150.0,
+        180.0,
+        210.0,
+        240.0,
+        270.0,
+        300.0,
+        330.0,
+        0.0,
+        30.0,
+        60.0,
+        90.0,
+        120.0
+      ],
+      "mc": 87.830949,
+      "vertex": 358.434646
+    }
+  },
+  "julian_day": 2451915.03125,
+  "utc": "2001-01-05T12:45:00+00:00"
+}

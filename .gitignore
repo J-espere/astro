@@ -1,0 +1,8 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+# Swiss Ephemeris data files: fetched by scripts/fetch_ephemeris.sh, not redistributed.
+data/ephe/
+# Ingested book corpora: built from your own copies, never committed.
+data/corpus/
