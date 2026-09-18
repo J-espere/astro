@@ -1,0 +1,52 @@
+{
+  "bodies": {
+    "chiron": {
+      "latitude": -7.3643286,
+      "longitude": 116.8881099
+    },
+    "jupiter": {
+      "latitude": 0.5762948,
+      "longitude": 133.5902787
+    },
+    "mars": {
+      "latitude": 1.6404862,
+      "longitude": 63.7807296
+    },
+    "mercury": {
+      "latitude": -2.4002527,
+      "longitude": 270.1053551
+    },
+    "moon": {
+      "latitude": 4.0829671,
+      "longitude": 66.3043072
+    },
+    "neptune": {
+      "latitude": 0.7994066,
+      "longitude": 283.0412658
+    },
+    "pluto": {
+      "latitude": 14.8211914,
+      "longitude": 228.5697456
+    },
+    "saturn": {
+      "latitude": -0.1094369,
+      "longitude": 292.4286729
+    },
+    "sun": {
+      "latitude": 6.05e-05,
+      "longitude": 249.6332498
+    },
+    "uranus": {
+      "latitude": -0.3170798,
+      "longitude": 277.9910338
+    },
+    "venus": {
+      "latitude": -0.2743964,
+      "longitude": 257.1776583
+    }
+  },
+  "epoch_utc": "1990-12-02T02:15:00+00:00",
+  "julian_day_ut": 2448227.59375,
+  "note": "above the polar circle: Placidus is undefined here",
+  "source": "JPL Horizons, geocentric apparent ecliptic of date (QUANTITIES=31)"
+}

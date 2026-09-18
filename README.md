@@ -9,7 +9,7 @@ interpretation, no UI yet.
 ```bash
 python -m venv .venv && .venv/bin/pip install -e '.[dev]'
 ./scripts/fetch_ephemeris.sh          # Swiss Ephemeris data files, not committed
-.venv/bin/python -m pytest            # 247 passing
+.venv/bin/python -m pytest            # 347 passing
 .venv/bin/python -m astro.cli chart "1985-07-13 10:30" \
     --tz America/New_York --lat 40.7128 --lon -74.0060
 ```
@@ -43,6 +43,20 @@ disagreement with the method is a data change with a recorded history, not a cod
 | `positions.py` | placements, signs, decans, retrograde state |
 | `houses.py` | 13 house systems, angles, and the origin-agnostic whole-sign frame |
 | `search.py` | root-finding over time: exact aspects, ingresses, stations, retrograde shadows, returns |
+
+## How the numbers are verified
+
+Comparing against other astrology software proves less than it looks: astro.com,
+astrologerapp and most of the rest all run the Swiss Ephemeris, so they would agree with each
+other whether or not any of them were right. Three checks that do carry weight:
+
+| Check | What it can catch |
+|---|---|
+| **JPL Horizons fixtures** (`tests/golden/jpl/`) | Wrong positions. NASA's DE441 service is a separate source and separate code; worst disagreement across all reference charts is **0.25″**, the Moon. |
+| **Swiss vs Moshier** | Wrong flags, time scale or units — two different theories inside swisseph, agreeing under an arcsecond. |
+| **Known dates** | Systematic drift. The 2026 equinox and the 2020 great conjunction are astronomical facts, not library output. |
+
+Refresh the JPL fixtures with `tests/fetch_jpl_reference.py` (needs `ssd.jpl.nasa.gov`).
 
 ## Source texts
 

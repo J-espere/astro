@@ -1,0 +1,52 @@
+{
+  "bodies": {
+    "chiron": {
+      "latitude": 5.0164909,
+      "longitude": 263.0359083
+    },
+    "jupiter": {
+      "latitude": -0.790165,
+      "longitude": 61.8571333
+    },
+    "mars": {
+      "latitude": 1.2451644,
+      "longitude": 217.5787135
+    },
+    "mercury": {
+      "latitude": -2.1111758,
+      "longitude": 291.6754529
+    },
+    "moon": {
+      "latitude": -4.5412714,
+      "longitude": 46.6672141
+    },
+    "neptune": {
+      "latitude": 0.1692004,
+      "longitude": 305.4886635
+    },
+    "pluto": {
+      "latitude": 10.3207261,
+      "longitude": 253.9260366
+    },
+    "saturn": {
+      "latitude": -2.178202,
+      "longitude": 54.4122958
+    },
+    "sun": {
+      "latitude": -0.0001307,
+      "longitude": 285.2517395
+    },
+    "uranus": {
+      "latitude": -0.6806137,
+      "longitude": 318.8745846
+    },
+    "venus": {
+      "latitude": -1.21908,
+      "longitude": 331.930117
+    }
+  },
+  "epoch_utc": "2001-01-05T12:45:00+00:00",
+  "julian_day_ut": 2451915.03125,
+  "note": "southern hemisphere, east longitude",
+  "source": "JPL Horizons, geocentric apparent ecliptic of date (QUANTITIES=31)"
+}
