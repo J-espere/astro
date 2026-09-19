@@ -127,6 +127,27 @@ These are not flavour notes; they change what the software is allowed to say.
   vending machine.
 - **Sign-cusp cases must be handled explicitly** (Ch. 14) — no silent rounding.
 
+## 5a. What the book does not address
+
+Recorded because absence and rejection are different facts, and only one of them
+constrains an implementation.
+
+- **Astrocartography, relocation, local space: not addressed at all.** Zero occurrences in
+  the full text. The five hits for "relocat" are the author's own moves; the single
+  "local space" is cosmological. Latitude appears only as the remark that house sizes
+  distort toward the poles (Ch. 15).
+
+  The gap is notable because the book supplies the premise and does not take the step. Its
+  justification for the Great Angles is explicitly geographic — our position on a rotating
+  Earth is what we experience as time, and the angles reflect that position compelling us
+  through spacetime (Ch. 15). If the angles matter *because* of where you stand, then
+  standing somewhere else gives you different angles. That is the argument for
+  astrocartography, and he makes it without noticing.
+
+  So `schools/hatch.yaml` carries `astrocartography.status: not_addressed`, not `false`. A
+  reading that shows every school's answer must be able to say "this school is silent on
+  this" rather than omit the school and let the omission read as disagreement.
+
 ## 6. Where the book is a spec and where it is a claim
 
 Keep these separate in the data model, because the user is comparing schools and will want to

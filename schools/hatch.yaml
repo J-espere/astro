@@ -117,6 +117,26 @@ cycles:
   barbault_pairs: [[saturn, neptune], [saturn, pluto], [uranus, pluto], [jupiter, saturn]]
   precession: {period_years: 25772, current_age: aquarius}
 
+astrocartography:
+  # NOT ADDRESSED, which is different from rejected, and the difference is
+  # recorded rather than left to inference. A search of the full text returns
+  # zero occurrences of astrocartography or any equivalent; the five hits for
+  # "relocat" are the author's own moves (Los Angeles, Palm Springs) and the one
+  # "local space" is cosmological, not the technique. Latitude appears only in
+  # the observation that house sizes distort toward the poles (Ch. 15).
+  #
+  # Worth noting because the book builds the premise and stops short of it: its
+  # stated justification for the Great Angles is explicitly geographic -- "our
+  # position on the surface of the Earth in constant motion ... is what we
+  # experience as time ... our position on our spinning planet compelling us
+  # forward through spacetime" (Ch. 15). If the angles matter because of where
+  # you stand on a rotating planet, then standing elsewhere gives different
+  # angles, which is the whole argument for astrocartography. He never takes
+  # the step.
+  status: not_addressed
+  enabled: false
+  note: "Silent on the technique; its own rationale for the angles would support it."
+
 output_stance:                               # constrains generated text (doctrine §5)
   descriptive_not_prescriptive: true
   no_benefic_moralizing: true                # aspects are morally impartial (Ch. 15)
