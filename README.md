@@ -3,16 +3,42 @@
 A personal astrology engine: Swiss Ephemeris calculation, doctrine as swappable data, and an
 interpretation layer that accumulates your own takes over time.
 
-**Status:** Phase 0 complete — the calculation core and its test suite. No doctrine, no
-interpretation, no UI yet.
+**Status:** calculation core and authoring layer. No UI yet.
 
 ```bash
 python -m venv .venv && .venv/bin/pip install -e '.[dev]'
 ./scripts/fetch_ephemeris.sh          # Swiss Ephemeris data files, not committed
-.venv/bin/python -m pytest            # 347 passing
-.venv/bin/python -m astro.cli chart "1985-07-13 10:30" \
+.venv/bin/python -m pytest            # 405 passing
+.venv/bin/python -m astro chart "1985-07-13 10:30" \
     --tz America/New_York --lat 40.7128 --lon -74.0060
+.venv/bin/python -m astro verify      # discrepancies against JPL, in full
 ```
+
+## Recording a system by hand
+
+A school does not need a source text to ingest. It can be entered a piece at a time as you
+learn it — which is the only way to record a system you can read but cannot export.
+
+```bash
+astro define "body:venus sign:leo" --school cosmodynamics \
+    --provenance transcribed --source "astrologerapp reading, 2026-09-19" --confidence 4
+        # opens $EDITOR; --text or a pipe work too
+
+astro lookup "body:venus sign:leo"      # EVERY school's answer, side by side
+astro revise 1 --text "..."             # supersedes; the original is kept
+astro history "body:venus sign:leo"     # every version you have held
+astro todo cosmodynamics body-in-sign   # 1 of 120 recorded
+```
+
+Three guarantees, all of them the no-silent rule applied to authoring:
+
+- **Nothing is overwritten.** A revision supersedes; your earlier position stays readable.
+- **Nothing is anonymous.** Provenance travels with the text. `--provenance source_text`
+  asserts these are a source's own words and is refused without a citation, so a line typed
+  out of another program can never pass itself off as a quotation.
+- **Nothing is silently preferred.** `lookup` returns every school that answers, and says so
+  when a general entry stood in for a specific one. Narrowing to one school requires asking,
+  and prints a note that others were available.
 
 - [`docs/PLAN.md`](docs/PLAN.md) — architecture, stack, UI, phased roadmap, open questions.
 - [`docs/ui-reference.md`](docs/ui-reference.md) — what astrologerapp.org's interface does, and
@@ -43,6 +69,13 @@ disagreement with the method is a data change with a recorded history, not a cod
 | `positions.py` | placements, signs, decans, retrograde state |
 | `houses.py` | 13 house systems, angles, and the origin-agnostic whole-sign frame |
 | `search.py` | root-finding over time: exact aspects, ingresses, stations, retrograde shadows, returns |
+
+`src/astro/doctrine/` and `src/astro/corpus/` hold the layers above it:
+
+| Module | Responsibility |
+|---|---|
+| `doctrine/factors.py` | the factor addressing scheme: canonical, extensible, with subset generalisation |
+| `corpus/store.py` | delineations with provenance, revision history, and cross-school lookup |
 
 ## How the numbers are verified
 
